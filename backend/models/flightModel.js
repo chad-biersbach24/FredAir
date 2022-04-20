@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const flightSchema = mongoose.Schema({
-    user:{ //makes a user associated with a flight, probably dont want this
+    user:{ //makes a user associated with a flight, probably use this for booking flight
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
