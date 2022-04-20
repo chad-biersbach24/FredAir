@@ -13,6 +13,18 @@ const flightSchema = mongoose.Schema({
     to:{
         type: String,
         required: [true, 'Please enter flight destination']
+    },
+    departure:{
+        type: String,
+        required: [true, 'Please enter flight depature time']
+    },
+    arrival:{
+        type: String,
+        required: [true, 'Please enter flight arrival time']
+    },
+    roundtrip:{
+        type: Boolean,
+        required: [true, 'Please indicate round trip or not']
     }
 }, {
     timestamps: true,
