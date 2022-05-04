@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const flightSchema = mongoose.Schema({
-    user:{ //makes a user associated with a flight, probably dont want this
+    user:{ //makes a user associated with a flight, probably use this for booking flight
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
@@ -13,6 +13,18 @@ const flightSchema = mongoose.Schema({
     to:{
         type: String,
         required: [true, 'Please enter flight destination']
+    },
+    departure:{
+        type: String,
+        required: [true, 'Please enter flight depature time']
+    },
+    arrival:{
+        type: String,
+        required: [true, 'Please enter flight arrival time']
+    },
+    roundtrip:{
+        type: Boolean,
+        required: [true, 'Please indicate round trip or not']
     }
 }, {
     timestamps: true,
