@@ -1,10 +1,17 @@
 const mongoose = require('mongoose')
 
 const flightSchema = mongoose.Schema({
-    user:{ //makes a user associated with a flight, probably dont want this
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
+    departure_date:{
+        type: Date,
+        required: [true,'Please enter flight departure date']
+    },
+    arrival_date:{
+        type: Date,
+        required: [true,'Please enter flight arrival date']
+    },
+    flight_id:{
+        type: String,
+        required: [true, 'Please enter flight id']
     },
     from:{
         type: String,
