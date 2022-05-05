@@ -23,12 +23,15 @@ const setFlight = asyncHandler(async (req, res) => {
     }
 
     const flight = await Flight.create({
+        departure_date: req.body.departure_date,
+        arrival_date: req.body.arrival_date,
+        flight_id: req.body.flight_id,
+        departure_time: req.body.departure_time,
+        arrival_time: req.body.arrival_time,
+        max_seats: req.body.max_seats,
+        seats_avail: req.body.seats_avail,
         from: req.body.from,
         to: req.body.to,
-        departure: req.body.departure,
-        arrival: req.body.arrival,
-        roundtrip: req.body.roundtrip,
-        //user: req.user.id   //creates users flights
     })
 
     res.status(200).json(flight)
