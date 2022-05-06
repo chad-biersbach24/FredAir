@@ -41,7 +41,8 @@ const setReservation = asyncHandler(async (req, res) => {
         arrival_date2: req.body.arrival_date2,
         departure_time2: req.body.departure_time2,
         arrival_time2: req.body.arrival_time2,
-        amount_paid: req.body.amount_paid
+        amount_paid: req.body.amount_paid,
+        user: req.user.id,
         
     })
 

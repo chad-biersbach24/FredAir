@@ -7,9 +7,9 @@ const User = require('../models/userModel')
 //@access Private
 
 const getFlights = asyncHandler(async (req, res) => {
-    const flights = await Flight.find({ user: req.user.id }) //returns users flights, for all flights have .find() empty
+        const flights = await Flight.find() //returns users flights, for all flights have .find() empty
 
-    res.status(200).json(flights)
+        res.status(200).json(flights)
 })
 
 //@desc Set Flight
