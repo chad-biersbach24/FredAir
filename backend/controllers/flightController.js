@@ -7,12 +7,13 @@ const User = require('../models/userModel')
 //@access Private
 
 const getFlights = asyncHandler(async (req, res) => {
-        const flights = await Flight.find() //returns users flights, for all flights have .find() empty
-
+        const filters = req.query
+        const flights = await Flight.find(filters) //returns users flights, for all flights have .find() empty
+        //console.log(filters)
         res.status(200).json(flights)
 })
 
-//@desc Set Flight
+//@desc Set Flights
 //@route POST /api/flights
 //@access Private
 
