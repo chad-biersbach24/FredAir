@@ -26,6 +26,7 @@ const AdminBroOptions = {
 const adminBro = new AdminBro(AdminBroOptions)
 const router = expressAdminBro.buildRouter(adminBro)
 
+
 app.use(cors({ origin: "*" }));
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))

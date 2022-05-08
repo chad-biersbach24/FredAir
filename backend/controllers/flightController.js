@@ -33,6 +33,7 @@ const setFlight = asyncHandler(async (req, res) => {
         seats_avail: req.body.seats_avail,
         from: req.body.from,
         to: req.body.to,
+        user: req.user.id   //creates users flights
     })
 
     res.status(200).json(flight)
