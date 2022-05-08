@@ -7,12 +7,13 @@ const User = require('../models/userModel')
 //@access Private
 
 const getFlights = asyncHandler(async (req, res) => {
-    const flights = await Flight.find({ user: req.user.id }) //returns users flights, for all flights have .find() empty
-
-    res.status(200).json(flights)
+        const filters = req.query
+        const flights = await Flight.find(filters) //returns users flights, for all flights have .find() empty
+        //console.log(filters)
+        res.status(200).json(flights)
 })
 
-//@desc Set Flight
+//@desc Set Flights
 //@route POST /api/flights
 //@access Private
 
@@ -23,6 +24,13 @@ const setFlight = asyncHandler(async (req, res) => {
     }
 
     const flight = await Flight.create({
+        departure_date: req.body.departure_date,
+        arrival_date: req.body.arrival_date,
+        flight_id: req.body.flight_id,
+        departure_time: req.body.departure_time,
+        arrival_time: req.body.arrival_time,
+        max_seats: req.body.max_seats,
+        seats_avail: req.body.seats_avail,
         from: req.body.from,
         to: req.body.to,
         user: req.user.id   //creates users flights

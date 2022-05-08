@@ -1,3 +1,4 @@
+const cors = require("cors");
 const express = require('express')
 const colors = require('colors')
 const dotenv = require('dotenv').config()
@@ -14,6 +15,7 @@ const app = express()
 
 const Flights = require('./models/flightModel')
 const User = require('./models/userModel')
+const Reservation = require('./models/reservationModel')
 
 
 AdminBro.registerAdapter(mongooseAdminBro)
@@ -25,10 +27,12 @@ const adminBro = new AdminBro(AdminBroOptions)
 const router = expressAdminBro.buildRouter(adminBro)
 
 
+app.use(cors({ origin: "*" }));
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use('/api/flights', require('./routes/flightRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
+app.use('/api/reservations', require('./routes/reservationRoutes'))
 app.use(errorHandler)
 app.use(adminBro.options.rootPath,router)
 
