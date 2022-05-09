@@ -3,12 +3,8 @@ const mongoose = require('mongoose')
 const reservationSchema = mongoose.Schema({
     confirmation_num:{
         type: String,
-
         required: [true, 'Please enter confirmation num'],
         unique: true
-
-        required: [true, 'Please enter confirmation num']
-
     },
     name:{
         type: String,
@@ -78,8 +74,6 @@ const reservationSchema = mongoose.Schema({
     arrival_time2:{
         type:String,
         required: [false, 'Please enter arrival time']
-        type: boolean,
-        required: [true, 'Please enter "false" for one-way or "true" for roundtrip']
     },
     flight_id2:{
         type: String,
