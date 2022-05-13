@@ -7,7 +7,8 @@ const User = require('../models/userModel')
 //@access Private
 
 const getReservations = asyncHandler(async (req, res) => {
-    const reservations = await Reservation.find({ user: req.user.id }) //returns users Reservations, for all reservations have .find() empty
+    const filter = req.query
+    const reservations = await Reservation.find(filter) //returns users Reservations, for all reservations have .find() empty
 
     res.status(200).json(reservations)
 })
