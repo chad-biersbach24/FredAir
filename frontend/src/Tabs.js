@@ -21,6 +21,8 @@ export default function MainTabs(props) {
 		bookDialogState,
 		setBookDialogState,
 		airports,
+		confirmNum,
+		setConfirmNum,
 	} = props;
 
 	return (
@@ -73,6 +75,8 @@ export default function MainTabs(props) {
 								bookDialogState={bookDialogState}
 								setBookDialogState={setBookDialogState}
 								airports={airports}
+								confirmNum={confirmNum}
+								setConfirmNum={setConfirmNum}
 							/>
 						</ul>
 					</Tab.Panel>
@@ -95,6 +99,8 @@ export default function MainTabs(props) {
 								setArrivingAirport={setArrivingAirport}
 								bookDialogState={bookDialogState}
 								setBookDialogState={setBookDialogState}
+								confirmNum={confirmNum}
+								setConfirmNum={setConfirmNum}
 							/>
 						</ul>
 					</Tab.Panel>

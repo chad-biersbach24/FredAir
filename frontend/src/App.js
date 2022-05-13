@@ -36,6 +36,7 @@ function App() {
 	const [arrivingAirport, setArrivingAirport] = useState(airports[0]);
 	const [bookDialogState, setBookDialogState] = useState(false);
 	const [selectedFlight, setSelectedFlight] = useState([{}]);
+	const [confirmNum, setConfirmNum] = useState("6969");
 
 	const sendLoginRequest = async () => {
 		if (!loginDebounce) {
@@ -172,6 +173,8 @@ function App() {
 						bookDialogState={bookDialogState}
 						setBookDialogState={setBookDialogState}
 						airports={airports}
+						confirmNum={confirmNum}
+						setConfirmNum={setConfirmNum}
 					/>
 				</div>
 			</div>

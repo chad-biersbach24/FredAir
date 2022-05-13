@@ -33,9 +33,9 @@ export default function FlightLookup(props) {
 		if (!cancelFlightDebounce) {
 			setCancelFlightDebounce(true);
 			try {
-				console.log(flightLookupResults[0]._id);
+				console.log(flightLookupResults[0].flight_id);
 				const resp = await axios.delete(
-					`http://localhost:5000/api/flights/${flightLookupResults[0]._id}`,
+					`http://localhost:5000/api/flights/${flightLookupResults[0].flight_id}`,
 					{
 						headers: {
 							authorization: `Bearer ${loginInfo.token}`,
@@ -60,14 +60,13 @@ export default function FlightLookup(props) {
 			setFlightLookupDebounce(true);
 			console.log(flightConfirmCode);
 			try {
-				const resp = await axios.get(
-					`http://localhost:5000/api/reservations?confirmation_num=${flightConfirmCode}`,
-					{
-						headers: {
-							authorization: `Bearer ${loginInfo.token}`,
-						},
-					}
-				);
+				const url = `http://localhost:5000/api/reservations?confirmation_num=${flightConfirmCode}`;
+				console.log(url);
+				const resp = await axios.get(url, {
+					headers: {
+						authorization: `Bearer ${loginInfo.token}`,
+					},
+				});
 				setFlightLookupError("");
 				setFlightLookupResults(resp.data);
 				setFlightLookupDialogState(true);
@@ -79,6 +78,18 @@ export default function FlightLookup(props) {
 			}
 		}
 	};
+
+	const handleConfirmCode = (event) => {
+		const { name, value } = event.target;
+		switch (name) {
+			case "confirmnnum":
+				setFlightConfirmCode(value);
+				break;
+			default:
+				break;
+		}
+	};
+
 	return (
 		<>
 			<div className="text-white space-y-2">
@@ -89,9 +100,7 @@ export default function FlightLookup(props) {
 					type="text"
 					name="confirmnnum"
 					value={flightConfirmCode}
-					onChange={() => {
-						setFlightConfirmCode();
-					}}
+					onChange={handleConfirmCode}
 				/>
 				<button
 					className={`${
