@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 
 const flightSchema = mongoose.Schema({
     departure_date:{
-        type: Date,
+        type: String,
         required: [true,'Please enter flight departure date']
     },
     arrival_date:{
-        type: Date,
+        type: String,
         required: [true,'Please enter flight arrival date']
     },
     flight_id:{
