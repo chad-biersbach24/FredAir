@@ -75,34 +75,6 @@ const reservationSchema = mongoose.Schema({
         type:String,
         required: [false, 'Please enter arrival time']
     },
-    flight_id2:{
-        type: String,
-        required: [true, 'Please enter flight id']
-    },
-    from2:{
-        type: String,
-        required: [true, 'Please enter flight origin']
-    },
-    to2:{
-        type: String,
-        required: [true, 'Please enter flight destination']
-    },
-    departure_date2:{
-        type: Date,
-        required: [true,'Please enter flight departure date']
-    },
-    arrival_date2:{
-        type: Date,
-        required: [true,'Please enter flight arrival date']
-    },
-    departure_time2:{
-        type:String,
-        required: [true, 'Please enter departure time']
-    },
-    arrival_time2:{
-        type:String,
-        required: [true, 'Please enter arrival time']
-    },
     amount_paid:{
         type: String,
         required: [true, 'Please enter the amount paid']
